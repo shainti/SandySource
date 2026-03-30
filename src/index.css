@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-inter: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --color-primary: #2563EB;
+  --color-primary-dark: #1E40AF;
+  --color-primary-light: #3B82F6;
+  --color-accent: #60A5FA;
+  --color-dark: #0F172A;
+  --color-dark-light: #1E293B;
+  --color-gray-text: #64748B;
+  --color-light-bg: #F8FAFC;
+  --color-border: #E2E8F0;
+}
+
+:root {
+  font-family: var(--font-sans);
+  background-color: #FFFFFF; /* Brighter background */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom background wave styles */
+.bg-mesh-pattern {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(210, 100%, 95%, 0.8) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(210, 100%, 95%, 0.5) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, hsla(0, 0%, 100%, 1) 0px, transparent 50%);
+  background-color: #F8F9FB;
+}
+
+/* Load Animations */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dropDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeScale {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0; 
+  will-change: transform, opacity;
+}
+
+.animate-drop-down {
+  animation: dropDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.animate-fade-scale {
+  animation: fadeScale 1.2s ease-out forwards;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+@keyframes textRevealCool {
+  0% { opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(5px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.animate-text-reveal {
+  animation: textRevealCool 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: inline-block;
+}
+
+/* Ambient Floating Animation for Backgrounds */
+@keyframes drift {
+  0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  33% { transform: translate(30px, -40px) scale(1.05) rotate(2deg); }
+  66% { transform: translate(-20px, 30px) scale(0.95) rotate(-1deg); }
+  100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+}
+
+.animate-drift {
+  animation: drift 20s infinite ease-in-out;
+  will-change: transform;
+}
+
+/* SVG Line Flowing Animation */
+@keyframes lineFlow {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+.animate-path-flow path {
+  stroke-dasharray: 60 40;
+  animation: lineFlow 5s linear infinite;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Swiping Text Animation for Hero */
+@keyframes swipeWord {
+  0% { transform: translateY(40px); opacity: 0; }
+  15% { transform: translateY(0); opacity: 1; }
+  85% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+
+.animate-word-swipe {
+  animation: swipeWord 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Background Blur Drifting Animations */
+@keyframes driftRight {
+  0% { transform: translateX(-25%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(-25%); }
+}
+
+@keyframes driftLeft {
+  0% { transform: translateX(0%); }
+  50% { transform: translateX(-25%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-drift-right {
+  animation: driftRight 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-drift-left {
+  animation: driftLeft 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Realistic Snake Walk Animation (Off-screen entry to off-screen exit) */
+@keyframes snakeWalk {
+  0% { transform: translateX(-120%); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+
+.animate-snake-walk {
+  animation: snakeWalk 12s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* Slide Swipe In Animations */
+@keyframes slideInLeft {
+  0% { transform: translateX(-100px); opacity: 0; filter: blur(5px); }
+  100% { transform: translateX(0); opacity: 1; filter: blur(0); }
+}
+
+@keyframes slideInRight {
+  0% { transform: translateX(100px); opacity: 0; filter: blur(5px); }
+  100% { transform: translateX(0); opacity: 1; filter: blur(0); }
+}
+
+@keyframes revealWipe {
+  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+.on-scroll-reveal {
+  opacity: 0;
+  will-change: transform, opacity, clip-path;
+}
+
+.on-scroll-reveal.active {
+  opacity: 1;
+}
+
+.animate-slide-left.active {
+  animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-right.active {
+  animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-reveal-wipe.active {
+  animation: revealWipe 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up.active {
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
