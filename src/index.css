@@ -158,20 +158,25 @@ body {
   will-change: transform, opacity;
 }
 
-/* Slide Swipe In Animations */
+/* Slide Swipe In Animations - Refined to be "Lighter" */
 @keyframes slideInLeft {
-  0% { transform: translateX(-100px); opacity: 0; filter: blur(5px); }
+  0% { transform: translateX(-100px); opacity: 0; filter: blur(20px); }
   100% { transform: translateX(0); opacity: 1; filter: blur(0); }
 }
 
 @keyframes slideInRight {
-  0% { transform: translateX(100px); opacity: 0; filter: blur(5px); }
+  0% { transform: translateX(100px); opacity: 0; filter: blur(20px); }
   100% { transform: translateX(0); opacity: 1; filter: blur(0); }
 }
 
 @keyframes revealWipe {
   0% { clip-path: inset(0 100% 0 0); opacity: 0; }
   100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+@keyframes fadeInUpSafe {
+  0% { transform: translateY(60px); opacity: 0; filter: blur(20px); }
+  100% { transform: translateY(0); opacity: 1; filter: blur(0); }
 }
 
 .on-scroll-reveal {
@@ -184,18 +189,18 @@ body {
 }
 
 .animate-slide-left.active {
-  animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideInLeft 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .animate-slide-right.active {
-  animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideInRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .animate-reveal-wipe.active {
-  animation: revealWipe 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: revealWipe 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .animate-fade-up.active {
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUpSafe 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
