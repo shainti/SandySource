@@ -6,17 +6,17 @@ const Services = () => {
 
   const services = [
     {
-      title: "Strategic Web Design",
+      title: "Web Design",
       description: "Bespoke, high-conversion digital experiences crafted with a blend of creativity and data-driven design principles.",
       image: "/assets/web_design.png"
     },
     {
-      title: "High-End Development",
+      title: "Web Development",
       description: "Robust, scalable, and secure web architectures built using cutting-edge technologies to power your business growth.",
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      title: "Mobile App Solutions",
+      title: "App Development",
       description: "Native and cross-platform mobile applications engineered for seamless performance and exceptional user engagement.",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop"
     },
@@ -103,10 +103,10 @@ const Services = () => {
         {/* Outer Slider Wrapper to handle Centering and Padding */}
         <div className="relative overflow-visible">
           {/* Main Stage (Overflow Hidden but with vertical padding for shadows) */}
-          <div className="overflow-hidden py-10 -my-10 px-2 sm:px-4"> 
-            <div 
+          <div className="overflow-hidden py-10 -my-10 px-2 sm:px-4">
+            <div
               className="flex transition-transform duration-1000 ease-in-out"
-              style={{ 
+              style={{
                 width: `${(totalServices / visibleCards) * 100}%`,
                 transform: `translateX(-${(currentIndex * 100) / totalServices}%)`
               }}
@@ -130,14 +130,14 @@ const Services = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                     </div>
 
-                    <div className="text-left space-y-4">
+                    <div className="text-center space-y-4">
                       <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors duration-500">
                         {service.title}
                       </h3>
                       <p className="text-slate-500 text-sm sm:text-base leading-relaxed font-medium line-clamp-3">
                         {service.description}
                       </p>
-                      <div className="pt-4 flex items-center gap-3">
+                      <div className="pt-4 flex items-center justify-center gap-3">
                         <div className="h-0.5 w-8 bg-blue-100 group-hover:w-16 group-hover:bg-blue-600 transition-all duration-700" />
                         <span className="text-[11px] font-black text-blue-600/30 uppercase tracking-[0.3em] group-hover:text-blue-600 transition-colors">Discover</span>
                       </div>
@@ -154,9 +154,8 @@ const Services = () => {
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`h-2 rounded-full transition-all duration-700 ${
-                  currentIndex === i ? 'w-12 bg-blue-600' : 'w-2 bg-slate-200 hover:bg-slate-300'
-                }`}
+                className={`h-2 rounded-full transition-all duration-700 ${currentIndex === i ? 'w-12 bg-blue-600' : 'w-2 bg-slate-200 hover:bg-slate-300'
+                  }`}
                 aria-label={`Slide ${i + 1}`}
               />
             ))}
