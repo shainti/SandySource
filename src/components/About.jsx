@@ -8,7 +8,7 @@ const IconClock = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="no
 
 const About = () => {
   const stats = [
-    { label: "Projects Completed", value: "10+" },
+    { label: "Projects Completed", value: "25+" },
     { label: "Happy Clients", value: "20+" },
     { label: "Years of Excellence", value: "2+" },
     { label: "Client Support", value: "24/7" },
