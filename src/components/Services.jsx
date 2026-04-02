@@ -1,165 +1,311 @@
 import React, { useState, useEffect } from 'react';
 
 const Services = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleCards, setVisibleCards] = useState(1);
-
-  const services = [
+  const cards = [
     {
-      title: "Web Design",
-      description: "Bespoke, high-conversion digital experiences crafted with a blend of creativity and data-driven design principles.",
-      image: "/assets/web_design.png"
+      tag: "Design",
+      headline: "Web Design",
+      subtitle: "Bespoke, high-conversion digital experiences",
+      image: "/assets/web_design.png",
+      features: [
+        "UI/UX Strategy",
+        "Figma Prototyping",
+        "Responsive Layouts",
+        "Interactive Animations",
+        "Creative Direction"
+      ]
     },
     {
-      title: "Web Development",
-      description: "Robust, scalable, and secure web architectures built using cutting-edge technologies to power your business growth.",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+      tag: "Engineering",
+      headline: "Web Development",
+      subtitle: "Robust, scalable, and secure architectures",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
+      features: [
+        "React & Next.js",
+        "Node.js Backends",
+        "Database Architecture",
+        "Cloud Deployment",
+        "API Integrations"
+      ]
     },
     {
-      title: "App Development",
-      description: "Native and cross-platform mobile applications engineered for seamless performance and exceptional user engagement.",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop"
+      tag: "Mobile",
+      headline: "App Development",
+      subtitle: "Native and cross-platform applications",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
+      features: [
+        "React Native",
+        "iOS & Android",
+        "Push Notifications",
+        "App Store Publishing",
+        "Offline Capabilities"
+      ]
     },
     {
-      title: "UI/UX Strategy",
-      description: "Comprehensive user journey mapping and interface strategy designed to maximize usability and customer satisfaction.",
-      image: "https://images.unsplash.com/photo-1541462608141-ad457491d902?q=80&w=2070&auto=format&fit=crop"
+      tag: "Strategy",
+      headline: "UI/UX Strategy",
+      subtitle: "Comprehensive user journey mapping",
+      image: "https://images.unsplash.com/photo-1541462608141-ad457491d902?q=80&w=2070&auto=format&fit=crop",
+      features: [
+        "User Research",
+        "Wireframing",
+        "A/B Testing",
+        "Information Architecture",
+        "Usability Testing"
+      ]
     },
     {
-      title: "Digital Marketing",
-      description: "Amplify your brand's reach with data-driven strategies and high-conversion campaigns across all digital channels.",
-      image: "/assets/digital_marketing.png"
+      tag: "Growth",
+      headline: "Digital Marketing",
+      subtitle: "Amplify your brand's total reach",
+      image: "/assets/digital_marketing.png",
+      features: [
+        "SEO Optimization",
+        "PPC Campaigns",
+        "Social Media Strategy",
+        "Content Marketing",
+        "Analytics & Reporting"
+      ]
     },
     {
-      title: "CMS Solutions",
-      description: "Empower your team with intuitive, custom-built content management systems designed for scale and complete creative control.",
-      image: "/assets/cms_solutions.png"
+      tag: "Management",
+      headline: "CMS Solutions",
+      subtitle: "Custom content management systems",
+      image: "/assets/cms_solutions.png",
+      features: [
+        "Headless Architecture",
+        "WordPress & Sanity",
+        "Content Modeling",
+        "Editor Roles & Access",
+        "Migration Services"
+      ]
     },
     {
-      title: "E-Commerce Solutions",
-      description: "High-performance online stores engineered to maximize sales, reduce friction, and provide seamless customer journeys.",
-      image: "/assets/ecommerce_solutions.png"
+      tag: "Commerce",
+      headline: "E-Commerce",
+      subtitle: "High-performance online store systems",
+      image: "/assets/ecommerce_solutions.png",
+      features: [
+        "Shopify & Custom Dev",
+        "Payment Gateway Setup",
+        "Inventory Management",
+        "Cart Optimization",
+        "Order Tracking"
+      ]
     },
     {
-      title: "AI Agents & Chatbots",
-      description: "Sophisticated AI automation that enhances customer engagement, streamlines support, and operates your business 24/7.",
-      image: "/assets/ai_agents.png"
+      tag: "Automation",
+      headline: "AI & Chatbots",
+      subtitle: "Sophisticated AI automation agents",
+      image: "/assets/ai_agents.png",
+      features: [
+        "Custom LLM Chatbots",
+        "24/7 Support Agents",
+        "Workflow Automation",
+        "Internal Data Search",
+        "CRM Integrations"
+      ]
     }
   ];
 
-  const totalServices = services.length;
+  // Duplicate for infinite loop
+  const allCards = [...cards, ...cards];
+  const totalOriginal = cards.length;
 
-  // Sync visibleCards with window width
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [visibleCards, setVisibleCards] = useState(3);
+
+  // Responsive: show 1 card on mobile, 3 on desktop
   useEffect(() => {
-    const updateVisibleCards = () => {
-      if (window.innerWidth < 640) {
+    const updateVisible = () => {
+      if (window.innerWidth < 768) {
         setVisibleCards(1);
-      } else if (window.innerWidth < 1024) {
-        setVisibleCards(2);
       } else {
         setVisibleCards(3);
       }
     };
-
-    updateVisibleCards();
-    window.addEventListener('resize', updateVisibleCards);
-    return () => window.removeEventListener('resize', updateVisibleCards);
+    updateVisible();
+    window.addEventListener('resize', updateVisible);
+    return () => window.removeEventListener('resize', updateVisible);
   }, []);
 
-  // Update maxIndex based on visibleCards
-  const maxIndex = totalServices - visibleCards;
-
-  // Ensure currentIndex is in bounds after card count change
-  useEffect(() => {
-    if (currentIndex > maxIndex) {
-      setCurrentIndex(maxIndex);
-    }
-  }, [visibleCards, maxIndex, currentIndex]);
-
-  // Handle auto-slide
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
-    }, 4500); // 4.5s for readability
+      setIsTransitioning(true);
+      setCurrentIndex((prev) => prev + 1);
+    }, 2500);
     return () => clearInterval(timer);
-  }, [maxIndex]);
+  }, []);
+
+  const handleTransitionEnd = () => {
+    if (currentIndex >= totalOriginal) {
+      setIsTransitioning(false);
+      setCurrentIndex(currentIndex - totalOriginal);
+    }
+  };
+
+  // Determine which card is in the "center" position visually
+  const getCenterIndex = () => {
+    return (currentIndex % totalOriginal + 1) % totalOriginal;
+  };
 
   return (
-    <section id="services" className="pt-24 pb-32 bg-[#F8FAFC] relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-full border border-slate-100 mb-8 on-scroll-reveal animate-fade-up">
+    <section id="services" className="pt-8 sm:pt-12 pb-12 sm:pb-16 bg-[#F8FAFC] relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-gradient-to-bl from-blue-100/30 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-6 sm:mb-10">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-100 mb-5 on-scroll-reveal animate-fade-up shadow-sm">
             <span className="text-blue-500">✨</span>
             <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">Our Services</span>
           </div>
-          <h2 className="text-[32px] sm:text-[48px] font-bold text-slate-900 mb-6 leading-tight on-scroll-reveal animate-fade-up delay-100">
+
+          <h2 className="text-[28px] sm:text-[42px] font-bold text-slate-900 mb-4 leading-tight on-scroll-reveal animate-fade-up delay-100">
             Tailored solutions for <span className="text-blue-600 font-serif italic">SandySource</span>
           </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base on-scroll-reveal animate-fade-up delay-200">
+          <p className="text-slate-500 max-w-lg mx-auto text-sm sm:text-base on-scroll-reveal animate-fade-up delay-200">
             Professional high-end digital solutions designed to elevate your business.
           </p>
         </div>
 
-        {/* Outer Slider Wrapper to handle Centering and Padding */}
-        <div className="relative overflow-visible">
-          {/* Main Stage (Overflow Hidden but with vertical padding for shadows) */}
-          <div className="overflow-hidden py-10 -my-10 px-2 sm:px-4">
-            <div
-              className="flex transition-transform duration-1000 ease-in-out"
-              style={{
-                width: `${(totalServices / visibleCards) * 100}%`,
-                transform: `translateX(-${(currentIndex * 100) / totalServices}%)`
-              }}
-            >
-              {services.map((service, index) => (
+        {/* Marquee Slider */}
+        <div className="overflow-hidden py-4">
+          <div
+            className="flex items-center"
+            onTransitionEnd={handleTransitionEnd}
+            style={{
+              transform: `translateX(-${currentIndex * (100 / allCards.length)}%)`,
+              transition: isTransitioning ? 'transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)' : 'none',
+              width: `${(allCards.length / visibleCards) * 100}%`,
+            }}
+          >
+            {allCards.map((card, index) => {
+              const originalIndex = index % totalOriginal;
+              const centerIdx = getCenterIndex();
+              const isCenter = originalIndex === centerIdx;
+
+              return (
                 <div
                   key={index}
                   className="px-3 shrink-0"
-                  style={{ width: `${100 / totalServices}%` }}
+                  style={{
+                    width: `${100 / allCards.length}%`,
+                    transition: 'transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)',
+                    transform: isCenter ? 'scale(1.06)' : 'scale(0.95)',
+                    zIndex: isCenter ? 10 : 1,
+                    position: 'relative',
+                  }}
                 >
-                  <div className="bg-white rounded-[32px] p-6 sm:p-8 h-full shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all duration-700 group">
-                    <div className="relative aspect-[1.3/1] mb-8 overflow-hidden rounded-2xl bg-slate-50">
+                  <div
+                    className={`rounded-3xl p-6 sm:p-7 h-full transition-all duration-700 flex flex-col ${
+                      isCenter
+                        ? 'bg-white shadow-[0_30px_80px_-15px_rgba(37,99,235,0.18)] border-2 border-blue-100'
+                        : 'bg-white/80 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.05)] border border-slate-100'
+                    }`}
+                  >
+                    {/* Image Banner */}
+                    <div className="relative w-full aspect-[2/1] mb-6 overflow-hidden rounded-2xl bg-slate-100 shrink-0">
                       <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110"
+                        src={card.image}
+                        alt={card.headline}
+                        className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
                         onError={(e) => {
                           e.target.src = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop';
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      {/* Subtle gradient overlay to match aesthetic */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent mix-blend-multiply opacity-50"></div>
                     </div>
 
-                    <div className="text-center space-y-4">
-                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors duration-500">
-                        {service.title}
-                      </h3>
-                      <p className="text-slate-500 text-sm sm:text-base leading-relaxed font-medium line-clamp-3">
-                        {service.description}
-                      </p>
-                      <div className="pt-4 flex items-center justify-center gap-3">
-                        <div className="h-0.5 w-8 bg-blue-100 group-hover:w-16 group-hover:bg-blue-600 transition-all duration-700" />
-                        <span className="text-[11px] font-black text-blue-600/30 uppercase tracking-[0.3em] group-hover:text-blue-600 transition-colors">Discover</span>
+                    <div className="flex-1">
+                      {/* Tag */}
+                      <div className="mb-4">
+                        <span className={`inline-block text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full ${
+                          isCenter
+                            ? 'bg-blue-50 text-blue-600 border border-blue-100'
+                            : 'bg-slate-50 text-slate-500 border border-slate-100'
+                        }`}>
+                          {card.tag}
+                        </span>
                       </div>
+
+                      {/* Headline */}
+                      <h3 className={`text-2xl sm:text-[28px] font-bold mb-2 tracking-tight ${
+                        isCenter ? 'text-slate-900' : 'text-slate-800'
+                      }`}>
+                        {card.headline}
+                      </h3>
+
+                      {/* Subtitle */}
+                      <p className={`text-sm mb-6 leading-relaxed ${
+                        isCenter ? 'text-slate-500' : 'text-slate-400'
+                      }`}>
+                        {card.subtitle}
+                      </p>
+
+                      {/* Divider */}
+                      <div className={`h-px w-full mb-6 ${
+                        isCenter ? 'bg-blue-100' : 'bg-slate-100'
+                      }`} />
+
+                      {/* Feature List */}
+                      <ul className="space-y-3.5 mt-auto">
+                        {card.features.map((feature, fIndex) => {
+                          const isObject = typeof feature === 'object';
+                          const text = isObject ? feature.text : feature;
+                          const isHighlighted = isObject && feature.highlight;
+
+                          return (
+                            <li key={fIndex} className="flex items-center gap-3">
+                              <svg
+                                className={`w-4 h-4 shrink-0 ${
+                                  isCenter
+                                    ? isHighlighted ? 'text-blue-600' : 'text-blue-400'
+                                    : isHighlighted ? 'text-blue-600' : 'text-slate-300'
+                                }`}
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <span className={`text-[13px] font-medium ${
+                                isCenter
+                                  ? isHighlighted ? 'text-blue-600 font-bold' : 'text-slate-600'
+                                  : isHighlighted ? 'text-blue-600 font-bold' : 'text-slate-500'
+                              }`}>
+                                {text}
+                              </span>
+                            </li>
+                          );
+                        })}
+                      </ul>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
+        </div>
 
-          {/* Dots Nav */}
-          <div className="flex justify-center flex-wrap gap-3 mt-16 pb-4">
-            {[...Array(maxIndex + 1)].map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-                className={`h-2 rounded-full transition-all duration-700 ${currentIndex === i ? 'w-12 bg-blue-600' : 'w-2 bg-slate-200 hover:bg-slate-300'
-                  }`}
-                aria-label={`Slide ${i + 1}`}
-              />
-            ))}
-          </div>
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2.5 mt-6 flex-wrap">
+          {cards.map((_, i) => (
+            <div
+              key={i}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                (currentIndex % totalOriginal) === i
+                  ? 'w-10 bg-blue-600'
+                  : 'w-2 bg-slate-200'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
