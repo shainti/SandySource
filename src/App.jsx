@@ -4,6 +4,8 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
 import WhyUs from './components/WhyUs';
+import Testimonials from './components/Testimonials';
+
 
 function App() {
   useEffect(() => {
@@ -34,6 +36,8 @@ function App() {
       <About />
       <Services />
       <WhyUs />
+      <Testimonials />
+
     </div>
   );
 }

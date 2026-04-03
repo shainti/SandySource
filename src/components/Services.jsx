@@ -200,11 +200,10 @@ const Services = () => {
                   }}
                 >
                   <div
-                    className={`rounded-3xl p-6 sm:p-7 h-full transition-all duration-700 flex flex-col ${
-                      isCenter
+                    className={`rounded-3xl p-6 sm:p-7 h-full transition-all duration-700 flex flex-col ${isCenter
                         ? 'bg-white shadow-[0_30px_80px_-15px_rgba(37,99,235,0.18)] border-2 border-blue-100'
                         : 'bg-white/80 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.05)] border border-slate-100'
-                    }`}
+                      }`}
                   >
                     {/* Image Banner */}
                     <div className="relative w-full aspect-[2/1] mb-6 overflow-hidden rounded-2xl bg-slate-100 shrink-0">
@@ -223,33 +222,31 @@ const Services = () => {
                     <div className="flex-1">
                       {/* Tag */}
                       <div className="mb-4">
-                        <span className={`inline-block text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full ${
-                          isCenter
+                        <span className={`inline-block text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full ${isCenter
                             ? 'bg-blue-50 text-blue-600 border border-blue-100'
                             : 'bg-slate-50 text-slate-500 border border-slate-100'
-                        }`}>
+                          }`}>
                           {card.tag}
                         </span>
                       </div>
 
                       {/* Headline */}
-                      <h3 className={`text-2xl sm:text-[28px] font-bold mb-2 tracking-tight ${
-                        isCenter ? 'text-slate-900' : 'text-slate-800'
-                      }`}>
+                      <h3 className={`text-2xl sm:text-[28px] font-black mb-2 tracking-tight ${isCenter ? 'text-slate-900' : 'text-slate-950'
+                        }`}>
+
                         {card.headline}
                       </h3>
 
                       {/* Subtitle */}
-                      <p className={`text-sm mb-6 leading-relaxed ${
-                        isCenter ? 'text-slate-500' : 'text-slate-400'
-                      }`}>
+                      <p className={`text-sm mb-6 leading-relaxed font-bold ${isCenter ? 'text-slate-600' : 'text-slate-600'
+                        }`}>
                         {card.subtitle}
                       </p>
 
+
                       {/* Divider */}
-                      <div className={`h-px w-full mb-6 ${
-                        isCenter ? 'bg-blue-100' : 'bg-slate-100'
-                      }`} />
+                      <div className={`h-px w-full mb-6 ${isCenter ? 'bg-blue-100' : 'bg-slate-100'
+                        }`} />
 
                       {/* Feature List */}
                       <ul className="space-y-3.5 mt-auto">
@@ -261,11 +258,10 @@ const Services = () => {
                           return (
                             <li key={fIndex} className="flex items-center gap-3">
                               <svg
-                                className={`w-4 h-4 shrink-0 ${
-                                  isCenter
+                                className={`w-4 h-4 shrink-0 ${isCenter
                                     ? isHighlighted ? 'text-blue-600' : 'text-blue-400'
                                     : isHighlighted ? 'text-blue-600' : 'text-slate-300'
-                                }`}
+                                  }`}
                                 viewBox="0 0 20 20"
                                 fill="currentColor"
                               >
@@ -275,11 +271,11 @@ const Services = () => {
                                   clipRule="evenodd"
                                 />
                               </svg>
-                              <span className={`text-[13px] font-medium ${
-                                isCenter
-                                  ? isHighlighted ? 'text-blue-600 font-bold' : 'text-slate-600'
-                                  : isHighlighted ? 'text-blue-600 font-bold' : 'text-slate-500'
-                              }`}>
+                              <span className={`text-[13px] font-bold ${isCenter
+                                  ? isHighlighted ? 'text-blue-600 font-black' : 'text-slate-800'
+                                  : isHighlighted ? 'text-blue-600 font-black' : 'text-slate-700'
+                                }`}>
+
                                 {text}
                               </span>
                             </li>
@@ -299,11 +295,10 @@ const Services = () => {
           {cards.map((_, i) => (
             <div
               key={i}
-              className={`h-2 rounded-full transition-all duration-500 ${
-                (currentIndex % totalOriginal) === i
+              className={`h-2 rounded-full transition-all duration-500 ${(currentIndex % totalOriginal) === i
                   ? 'w-10 bg-blue-600'
                   : 'w-2 bg-slate-200'
-              }`}
+                }`}
             />
           ))}
         </div>

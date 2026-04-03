@@ -139,9 +139,11 @@ const WhyUs = () => {
           <h2 className="text-2xl sm:text-[42px] font-bold text-slate-900 mb-3 sm:mb-4 leading-tight on-scroll-reveal animate-fade-up delay-100">
             Why <span className="text-blue-600 font-serif italic">SandySource</span>?
           </h2>
-          <p className="text-slate-500 max-w-lg mx-auto text-xs sm:text-base on-scroll-reveal animate-fade-up delay-200">
+          <p className="text-slate-800 max-w-lg mx-auto text-xs sm:text-base font-bold on-scroll-reveal animate-fade-up delay-200">
             We deliver quality, value, and long-term partnerships — not just websites.
           </p>
+
+
         </div>
 
         {/* CSS Grid layout - 2-col on mobile, 3-col desktop */}
@@ -149,7 +151,7 @@ const WhyUs = () => {
           {cards.map((card, index) => {
             const isFeatured = card.featured;
             const IconComponent = card.icon;
-            
+
             return (
               <div
                 key={index}
@@ -157,52 +159,49 @@ const WhyUs = () => {
                 style={{ animationDelay: `${(index % 3) * 150}ms` }}
               >
                 <div
-                  className={`rounded-2xl sm:rounded-3xl p-4 sm:p-8 h-full flex flex-col group transition-all duration-500 hover:-translate-y-2 relative overflow-hidden ${
-                    isFeatured
+                  className={`rounded-2xl sm:rounded-3xl p-4 sm:p-8 h-full flex flex-col group transition-all duration-500 hover:-translate-y-2 relative overflow-hidden ${isFeatured
                       ? 'bg-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.15)] border-2 border-blue-500/20 hover:shadow-[0_30px_60px_-15px_rgba(37,99,235,0.25)] hover:border-blue-500/40'
                       : 'bg-white shadow-[0_8px_30px_-10px_rgba(0,0,0,0.05)] border-2 border-transparent hover:shadow-[0_30px_60px_-15px_rgba(37,99,235,0.25)] hover:border-blue-500/40'
-                  }`}
+                    }`}
                 >
                   {/* Subtle highlight gradient for featured card / hover all */}
-                  <div className={`absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-blue-500/10 rounded-bl-full shrink-0 -mr-6 -mt-6 sm:-mr-8 sm:-mt-8 pointer-events-none transition-all duration-700 group-hover:scale-150 ${
-                    isFeatured ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                  }`} />
+                  <div className={`absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-blue-500/10 rounded-bl-full shrink-0 -mr-6 -mt-6 sm:-mr-8 sm:-mt-8 pointer-events-none transition-all duration-700 group-hover:scale-150 ${isFeatured ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                    }`} />
 
                   {/* Icon & Tag Flex Header */}
                   <div className="flex sm:items-center flex-col sm:flex-row items-start gap-2 sm:gap-4 mb-3 sm:mb-6 relative z-10 w-full overflow-hidden">
-                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-blue-600 group-hover:shadow-md group-hover:shadow-blue-500/30 group-hover:text-white ${
-                      isFeatured ? 'bg-blue-600 shadow-md shadow-blue-500/30 text-white' : 'bg-slate-50 border border-slate-100/80 text-blue-600'
-                    }`}>
+                    <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-blue-600 group-hover:shadow-md group-hover:shadow-blue-500/30 group-hover:text-white ${isFeatured ? 'bg-blue-600 shadow-md shadow-blue-500/30 text-white' : 'bg-slate-50 border border-slate-100/80 text-blue-600'
+                      }`}>
                       <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
                     </div>
-                    
-                    <span className={`inline-block text-[8px] sm:text-[11px] font-bold uppercase tracking-widest px-2 sm:px-4 py-1 sm:py-1.5 rounded-full whitespace-nowrap overflow-hidden text-ellipsis w-min max-w-full transition-colors duration-500 group-hover:bg-blue-50 group-hover:text-blue-600 group-hover:border-blue-100/50 ${
-                      isFeatured
+
+                    <span className={`inline-block text-[8px] sm:text-[11px] font-bold uppercase tracking-widest px-2 sm:px-4 py-1 sm:py-1.5 rounded-full whitespace-nowrap overflow-hidden text-ellipsis w-min max-w-full transition-colors duration-500 group-hover:bg-blue-50 group-hover:text-blue-600 group-hover:border-blue-100/50 ${isFeatured
                         ? 'bg-blue-50 text-blue-600 border border-blue-100/50'
                         : 'bg-slate-50 text-slate-500 border border-slate-100'
-                    }`}>
+                      }`}>
                       {card.tag}
                     </span>
                   </div>
 
                   {/* Headline */}
-                  <h3 className={`text-sm sm:text-[28px] font-bold mb-1 sm:mb-2 tracking-tight relative z-10 leading-tight transition-colors duration-500 group-hover:text-blue-700 ${
-                    isFeatured ? 'text-slate-900 group-hover:text-blue-700 transition-colors' : 'text-slate-800'
-                  }`}>
+                  <h3 className={`text-sm sm:text-[28px] font-black mb-1 sm:mb-2 tracking-tight relative z-10 leading-tight transition-colors duration-500 group-hover:text-blue-700 ${isFeatured ? 'text-slate-900 group-hover:text-blue-700 transition-colors' : 'text-slate-950'
+                    }`}>
+
+
                     {card.headline}
                   </h3>
 
                   {/* Subtitle */}
-                  <p className={`text-[9px] sm:text-sm mb-3 sm:mb-6 leading-relaxed sm:leading-relaxed relative z-10 line-clamp-2 sm:line-clamp-none transition-colors duration-500 group-hover:text-slate-500 ${
-                    isFeatured ? 'text-slate-500' : 'text-slate-400'
-                  }`}>
+                  <p className={`text-[10px] sm:text-sm font-bold mb-3 sm:mb-6 leading-relaxed sm:leading-relaxed relative z-10 line-clamp-2 sm:line-clamp-none transition-colors duration-500 group-hover:text-slate-700 ${isFeatured ? 'text-slate-600' : 'text-slate-700'
+                    }`}>
+
+
                     {card.subtitle}
                   </p>
 
                   {/* Divider */}
-                  <div className={`h-px w-full mb-3 sm:mb-6 relative z-10 transition-colors duration-500 group-hover:bg-blue-100/80 ${
-                    isFeatured ? 'bg-blue-100/80' : 'bg-slate-100'
-                  }`} />
+                  <div className={`h-px w-full mb-3 sm:mb-6 relative z-10 transition-colors duration-500 group-hover:bg-blue-100/80 ${isFeatured ? 'bg-blue-100/80' : 'bg-slate-100'
+                    }`} />
 
                   {/* Feature List */}
                   <ul className="space-y-1.5 sm:space-y-3.5 mt-auto relative z-10">
@@ -214,17 +213,17 @@ const WhyUs = () => {
                       return (
                         <li key={fIndex} className="flex items-start sm:items-center gap-1.5 sm:gap-3">
                           <IconCheck
-                            className={`w-3 h-3 sm:w-4 sm:h-4 shrink-0 mt-0.5 sm:mt-0 transition-transform duration-300 group-hover:scale-110 ${
-                              isFeatured
-                                ? isHighlighted ? 'text-blue-600 stroke-[3px]' : 'text-blue-400 stroke-[2.5px]'
-                                : isHighlighted ? 'text-blue-600 stroke-[3px]' : 'text-slate-300 stroke-[2.5px]'
-                            }`}
+                            className={`w-3 h-3 sm:w-4 sm:h-4 shrink-0 mt-0.5 sm:mt-0 transition-transform duration-300 group-hover:scale-110 ${isFeatured
+                                ? isHighlighted ? 'text-blue-600 stroke-[3px]' : 'text-blue-500 stroke-[2.5px]'
+                                : isHighlighted ? 'text-blue-600 stroke-[3px]' : 'text-slate-500 stroke-[2.5px]'
+                              }`}
                           />
-                          <span className={`text-[8.5px] sm:text-[13px] leading-[1.2] sm:leading-normal font-medium ${
-                            isFeatured
-                              ? isHighlighted ? 'text-blue-600 font-bold' : 'text-slate-600'
-                              : isHighlighted ? 'text-blue-500 font-bold' : 'text-slate-500 group-hover:text-slate-700 transition-colors'
-                          }`}>
+                          <span className={`text-[8.5px] sm:text-[13px] leading-[1.2] sm:leading-normal font-bold ${isFeatured
+                              ? isHighlighted ? 'text-blue-600 font-black' : 'text-slate-900'
+                              : isHighlighted ? 'text-blue-600 font-black' : 'text-slate-800 group-hover:text-slate-950 transition-colors'
+                            }`}>
+
+
                             {text}
                           </span>
                         </li>

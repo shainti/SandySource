@@ -37,9 +37,10 @@ const About = () => {
               </h2>
               <div className="h-1 w-20 bg-blue-600 rounded-full" />
             </div>
-            <p className="text-sm sm:text-lg text-slate-600 leading-relaxed font-medium">
-              SandySource engineers <span className="text-slate-900 font-bold">scalable web architectures</span> and <span className="text-slate-900 font-bold">AI-driven solutions</span>, transforming complex technical challenges into high-performance digital assets.
+            <p className="text-sm sm:text-lg text-slate-700 leading-relaxed font-bold">
+              SandySource engineers <span className="text-slate-950 font-black">scalable web architectures</span> and <span className="text-slate-950 font-black">AI-driven solutions</span>, transforming complex technical challenges into high-performance digital assets.
             </p>
+
             <p className="text-[10px] sm:text-xs font-black text-blue-600/40 uppercase tracking-[0.5em]">
               Innovating with Precision
             </p>
@@ -115,9 +116,10 @@ const About = () => {
                             {exp.name[0]}
                           </div>
                           <div className="text-left space-y-1">
-                            <div className="text-xl font-bold text-slate-800 tracking-tight group-hover:text-blue-600 transition-colors duration-500">{exp.name}</div>
-                            <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">{exp.role}</div>
+                            <div className="text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors duration-500">{exp.name}</div>
+                            <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">{exp.role}</div>
                           </div>
+
                         </div>
                       </td>
                       <td className="py-8 font-black text-blue-600 text-3xl tracking-tighter tabular-nums">
