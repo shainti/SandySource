@@ -139,9 +139,14 @@ const WhyUs = () => {
           <h2 className="text-2xl sm:text-[42px] font-bold text-slate-900 mb-3 sm:mb-4 leading-tight on-scroll-reveal animate-fade-up delay-100">
             Why <span className="text-blue-600 font-serif italic">SandySource</span>?
           </h2>
-          <p className="text-slate-800 max-w-lg mx-auto text-xs sm:text-base font-bold on-scroll-reveal animate-fade-up delay-200">
+
+
+
+
+          <p className="text-slate-950 max-w-lg mx-auto text-xs sm:text-base font-black on-scroll-reveal animate-fade-up delay-200">
             We deliver quality, value, and long-term partnerships — not just websites.
           </p>
+
 
 
         </div>
@@ -184,8 +189,9 @@ const WhyUs = () => {
                   </div>
 
                   {/* Headline */}
-                  <h3 className={`text-sm sm:text-[28px] font-black mb-1 sm:mb-2 tracking-tight relative z-10 leading-tight transition-colors duration-500 group-hover:text-blue-700 ${isFeatured ? 'text-slate-900 group-hover:text-blue-700 transition-colors' : 'text-slate-950'
+                  <h3 className={`text-sm sm:text-[28px] font-semibold mb-1 sm:mb-2 tracking-tight relative z-10 leading-tight transition-colors duration-500 group-hover:text-blue-700 ${isFeatured ? 'text-slate-900 group-hover:text-blue-700 transition-colors' : 'text-slate-800'
                     }`}>
+
 
 
                     {card.headline}
@@ -220,8 +226,9 @@ const WhyUs = () => {
                           />
                           <span className={`text-[8.5px] sm:text-[13px] leading-[1.2] sm:leading-normal font-bold ${isFeatured
                               ? isHighlighted ? 'text-blue-600 font-black' : 'text-slate-900'
-                              : isHighlighted ? 'text-blue-600 font-black' : 'text-slate-800 group-hover:text-slate-950 transition-colors'
-                            }`}>
+                              : isHighlighted ? 'text-blue-600 font-black' : 'text-slate-950 group-hover:text-black transition-colors'
+                          }`}>
+
 
 
                             {text}

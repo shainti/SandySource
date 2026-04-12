@@ -1,43 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import WhyUs from './components/WhyUs';
-import Testimonials from './components/Testimonials';
-
+import Home from './pages/Home';
+import Portfolio from './pages/Portfolio';
 
 function App() {
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          // Optional: unobserve after animating once
-          // observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    const revealElements = document.querySelectorAll('.on-scroll-reveal');
-    revealElements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
   return (
     <div className="min-h-screen bg-transparent">
       <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <WhyUs />
-      <Testimonials />
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+      </Routes>
     </div>
   );
 }

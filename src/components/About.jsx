@@ -5,7 +5,9 @@ const IconCheckSquare = () => <svg width="24" height="24" viewBox="0 0 24 24" fi
 const IconUsers = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>;
 const IconBriefcase = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v16"></path></svg>;
 const IconClock = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>;
+ 
 
+//another trail 
 const About = () => {
   const stats = [
     { label: "Projects Completed", value: "25+" },
@@ -35,11 +37,21 @@ const About = () => {
               <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900">
                 Welcome to <span className="text-blue-600 font-serif italic">SandySource</span>
               </h2>
+
+
+
+
+
+
               <div className="h-1 w-20 bg-blue-600 rounded-full" />
             </div>
-            <p className="text-sm sm:text-lg text-slate-700 leading-relaxed font-bold">
+            <p className="text-sm sm:text-lg text-slate-900 leading-relaxed font-bold">
               SandySource engineers <span className="text-slate-950 font-black">scalable web architectures</span> and <span className="text-slate-950 font-black">AI-driven solutions</span>, transforming complex technical challenges into high-performance digital assets.
             </p>
+
+
+
+
 
             <p className="text-[10px] sm:text-xs font-black text-blue-600/40 uppercase tracking-[0.5em]">
               Innovating with Precision
@@ -73,9 +85,10 @@ const About = () => {
               <div className="text-2xl sm:text-4xl font-black text-blue-600 mb-1 sm:mb-2 tracking-tighter tabular-nums group-hover:scale-110 transition-transform duration-500 leading-none">
                 {stat.value}
               </div>
-              <div className="text-[9px] sm:text-[12px] font-bold text-slate-400 uppercase tracking-[0.2em] sm:tracking-[0.25em] leading-tight">
+              <div className="text-[9px] sm:text-[12px] font-black text-slate-500 uppercase tracking-[0.2em] sm:tracking-[0.25em] leading-tight filter brightness-75">
                 {stat.label}
               </div>
+
             </div>
           ))}
         </section>
@@ -116,9 +129,11 @@ const About = () => {
                             {exp.name[0]}
                           </div>
                           <div className="text-left space-y-1">
-                            <div className="text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors duration-500">{exp.name}</div>
-                            <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">{exp.role}</div>
+                            <div className="text-xl font-bold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors duration-500">{exp.name}</div>
+                            <div className="text-[10px] font-black text-slate-700 uppercase tracking-[0.2em]">{exp.role}</div>
                           </div>
+
+
 
                         </div>
                       </td>

@@ -166,9 +166,16 @@ const Services = () => {
           <h2 className="text-[28px] sm:text-[42px] font-bold text-slate-900 mb-4 leading-tight on-scroll-reveal animate-fade-up delay-100">
             Tailored solutions for <span className="text-blue-600 font-serif italic">SandySource</span>
           </h2>
-          <p className="text-slate-500 max-w-lg mx-auto text-sm sm:text-base on-scroll-reveal animate-fade-up delay-200">
+
+
+
+
+
+
+          <p className="text-slate-700 max-w-lg mx-auto text-sm sm:text-base font-bold on-scroll-reveal animate-fade-up delay-200">
             Professional high-end digital solutions designed to elevate your business.
           </p>
+
         </div>
 
         {/* Marquee Slider */}
@@ -234,12 +241,14 @@ const Services = () => {
                       <h3 className={`text-2xl sm:text-[28px] font-black mb-2 tracking-tight ${isCenter ? 'text-slate-900' : 'text-slate-950'
                         }`}>
 
+
                         {card.headline}
                       </h3>
 
                       {/* Subtitle */}
-                      <p className={`text-sm mb-6 leading-relaxed font-bold ${isCenter ? 'text-slate-600' : 'text-slate-600'
+                      <p className={`text-sm mb-6 leading-relaxed font-bold ${isCenter ? 'text-slate-700' : 'text-slate-800'
                         }`}>
+
                         {card.subtitle}
                       </p>
 
@@ -272,9 +281,10 @@ const Services = () => {
                                 />
                               </svg>
                               <span className={`text-[13px] font-bold ${isCenter
-                                  ? isHighlighted ? 'text-blue-600 font-black' : 'text-slate-800'
-                                  : isHighlighted ? 'text-blue-600 font-black' : 'text-slate-700'
+                                  ? isHighlighted ? 'text-blue-600 font-black' : 'text-slate-950'
+                                  : isHighlighted ? 'text-blue-600 font-black' : 'text-slate-900'
                                 }`}>
+
 
                                 {text}
                               </span>

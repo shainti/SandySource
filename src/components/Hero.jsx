@@ -74,6 +74,7 @@ const Hero = () => {
               </svg>
             </div>
 
+
             <h1 className="text-[28px] xs:text-[36px] sm:text-[54px] md:text-[64px] lg:text-[76px] font-medium leading-[1.2] mb-4 sm:mb-6 tracking-tight text-[#1E293B] on-scroll-reveal animate-fade-up">
               Scale Your Digital Presence <br className="xs:hidden" /> With Expert{' '}
               <div className="relative block xs:inline-block h-[1.1em] overflow-visible align-bottom text-center xs:text-left min-w-[200px] xs:min-w-[280px] sm:min-w-[480px]">
@@ -86,9 +87,10 @@ const Hero = () => {
               </div>
             </h1>
 
-            <p className="text-[#64748B] text-[14px] sm:text-[18px] leading-relaxed max-w-[800px] mx-auto mb-1 sm:mb-2 font-normal on-scroll-reveal animate-fade-up" style={{ animationDelay: '200ms' }}>
+            <p className="text-[#334155] text-[14px] sm:text-[18px] leading-relaxed max-w-[800px] mx-auto mb-1 sm:mb-2 font-bold on-scroll-reveal animate-fade-up" style={{ animationDelay: '200ms' }}>
               SandySource is a premium freelance agency delivering top-tier web development, stunning design, and intelligent AI solutions.
             </p>
+
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-6 relative z-20">
