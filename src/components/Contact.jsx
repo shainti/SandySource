@@ -18,18 +18,38 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', service: '', budget: '', message: '' });
+    try {
+      // Connect to Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          // TODO: Replace with your actual Web3Forms Access Key (get it at https://web3forms.com/)
+          access_key: "YOUR_ACCESS_KEY_HERE",
+          Subject: "New Contact Form Submission",
+          ...formData,
+        }),
+      });
 
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', service: '', budget: '', message: '' });
+      }
+    } catch (error) {
+      console.error("Form submission error", error);
+    } finally {
+      setIsSubmitting(false);
       setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+    }
   };
 
   const services = [
@@ -105,7 +125,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Phone</div>
-                    <div className="text-sm font-bold text-slate-900">+91 98765 43210</div>
+                    <div className="text-sm font-bold text-slate-900">+91 90150 61513</div>
                   </div>
                 </div>
 
@@ -119,7 +139,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Location</div>
-                    <div className="text-sm font-bold text-slate-900">New Delhi, India</div>
+                    <div className="text-sm font-bold text-slate-900">Himachal Pradesh, India</div>
                   </div>
                 </div>
               </div>

@@ -7,12 +7,19 @@ const Navbar = () => {
   const location = useLocation()
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-      if (isOpen) setIsOpen(false)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          if (isOpen) setIsOpen(false);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [isOpen])
 
   // Prevent body scroll when menu is open
@@ -23,15 +30,15 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/#about' },
-    { name: 'Services', path: '/#services' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
   ]
 
   const getActiveIndex = () => {
     if (location.pathname === '/portfolio') return 3;
-    if (location.hash === '#services') return 2;
-    if (location.hash === '#about') return 1;
+    if (location.pathname === '/services') return 2;
+    if (location.pathname === '/about') return 1;
     return 0;
   }
 
@@ -72,13 +79,13 @@ const Navbar = () => {
 
             {/* Desktop Contact Button */}
             <div className="hidden lg:block z-50">
-              <a
-                href="#contact"
+              <Link
+                to="/#contact"
                 className="bg-gradient-to-b from-[#3A3F47] to-[#1C1F24] hover:from-[#2e333a] hover:to-[#131518] text-white px-8 py-2.5 rounded-full font-medium text-[14px] transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(28,31,36,0.6)] hover:shadow-[0_12px_25px_-6px_rgba(28,31,36,0.7)] hover:-translate-y-0.5 border border-[#4B525C]/30"
 
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -123,13 +130,13 @@ const Navbar = () => {
         </div>
 
         <div className="p-8 border-t border-gray-100">
-           <a
-            href="#contact"
+           <Link
+            to="/#contact"
             onClick={() => setIsOpen(false)}
             className="block w-full bg-[#2D3136] text-white px-4 py-4 rounded-xl font-semibold text-base text-center transition-all hover:bg-[#1a1c1f] shadow-[0_8px_20px_-6px_rgba(45,49,54,0.3)]"
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </>

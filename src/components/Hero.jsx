@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const services = [
@@ -94,13 +95,13 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-6 relative z-20">
-            <a
-              href="#work"
+            <Link
+              to="/portfolio"
               className="w-full sm:w-auto bg-gradient-to-b from-[#3B82F6] to-[#2563EB] text-white px-10 py-3.5 rounded-full font-medium text-[16px] transition-all duration-300 shadow-[0_8px_25px_-8px_rgba(37,99,235,0.6)] hover:shadow-[0_12px_30px_-8px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 border border-[#60A5FA]/20 text-center on-scroll-reveal animate-slide-left"
               style={{ animationDelay: '400ms' }}
             >
               View Our Work
-            </a>
+            </Link>
             <a
               href="#contact"
               className="w-full sm:w-auto bg-white text-[#475569] px-10 py-3.5 rounded-full font-medium text-[16px] transition-all duration-300 shadow-[0_8px_30px_-8px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_35px_-8px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 border border-[#F1F5F9] text-center on-scroll-reveal animate-slide-right"

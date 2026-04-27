@@ -140,8 +140,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-[9px] font-black text-white/25 uppercase tracking-[0.2em] mb-1">Phone</div>
-                  <a href="tel:+919876543210" className="text-[#8B95A8] text-sm font-bold hover:text-blue-400 transition-colors duration-300">
-                    +91 98765 43210
+                  <a href="tel:+919015061513" className="text-[#8B95A8] text-sm font-bold hover:text-blue-400 transition-colors duration-300">
+                    +91 90150 61513
                   </a>
                 </div>
               </div>
@@ -155,7 +155,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-[9px] font-black text-white/25 uppercase tracking-[0.2em] mb-1">Location</div>
-                  <span className="text-[#8B95A8] text-sm font-bold">New Delhi, India</span>
+                  <span className="text-[#8B95A8] text-sm font-bold">Himachal Pradesh, India</span>
                 </div>
               </div>
             </div>

@@ -70,8 +70,8 @@ body {
 }
 
 @keyframes textRevealCool {
-  0% { opacity: 0; transform: translateY(15px) scale(0.98); filter: blur(5px); }
-  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+  0% { opacity: 0; transform: translateY(15px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .animate-text-reveal {
@@ -160,13 +160,13 @@ body {
 
 /* Slide Swipe In Animations - Refined to be "Lighter" */
 @keyframes slideInLeft {
-  0% { transform: translateX(-100px); opacity: 0; filter: blur(20px); }
-  100% { transform: translateX(0); opacity: 1; filter: blur(0); }
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes slideInRight {
-  0% { transform: translateX(100px); opacity: 0; filter: blur(20px); }
-  100% { transform: translateX(0); opacity: 1; filter: blur(0); }
+  0% { transform: translateX(100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes revealWipe {
@@ -175,13 +175,13 @@ body {
 }
 
 @keyframes fadeInUpSafe {
-  0% { transform: translateY(60px); opacity: 0; filter: blur(20px); }
-  100% { transform: translateY(0); opacity: 1; filter: blur(0); }
+  0% { transform: translateY(60px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 .on-scroll-reveal {
   opacity: 0;
-  will-change: transform, opacity, clip-path;
+  will-change: transform, opacity;
 }
 
 .on-scroll-reveal.active {

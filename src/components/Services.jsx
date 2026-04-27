@@ -306,6 +306,7 @@ const Services = () => {
               transform: `translateX(-${currentIndex * (100 / allCards.length)}%)`,
               transition: isTransitioning ? 'transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)' : 'none',
               width: `${(allCards.length / visibleCards) * 100}%`,
+              willChange: 'transform',
             }}
           >
             {allCards.map((card, index) => {
@@ -324,6 +325,7 @@ const Services = () => {
                     transform: isCenter ? 'scale(1.06)' : 'scale(0.95)',
                     zIndex: isCenter ? 10 : 1,
                     position: 'relative',
+                    willChange: 'transform',
                   }}
                 >
                   <div

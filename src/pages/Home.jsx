@@ -22,6 +22,7 @@ const Home = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -33,10 +34,17 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // Handle hash scroll with animation
-    if (location.hash) {
-      const id = location.hash.substring(1);
-      const element = document.getElementById(id);
+    // Map clean paths to section IDs
+    const pathToSection = {
+      '/about': 'about',
+      '/services': 'services',
+    };
+
+    // Determine target section: from pathname or from hash
+    const sectionId = pathToSection[location.pathname] || (location.hash ? location.hash.substring(1) : null);
+
+    if (sectionId) {
+      const element = document.getElementById(sectionId);
       
       if (element) {
         // Wait a small bit for any image layouts or mounting to stabilize
@@ -59,7 +67,7 @@ const Home = () => {
         return () => clearTimeout(timer);
       }
     } else if (location.pathname === '/') {
-      // If no hash and we are at root, scroll to top
+      // If no section target and we are at root, scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [location]);

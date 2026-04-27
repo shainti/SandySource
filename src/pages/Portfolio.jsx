@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import collegianxImg from '../assets/collegianx.png';
 import aryamealsImg from '../assets/aryameals.png';
+import examsystemImg from '../assets/examsystem.png';
 import Footer from '../components/Footer';
 
 const Portfolio = () => {
@@ -16,6 +17,7 @@ const Portfolio = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -42,6 +44,14 @@ const Portfolio = () => {
       link: "https://aryameals.com",
       tags: ["React", "Node.js", "FoodTech", "E-commerce"],
       color: "from-orange-500 to-red-600"
+    },
+    {
+      title: "Exam Portal",
+      description: "A clean and secure university portal for conducting examinations, managing question banks, scheduling tests, and generating results — built with a professional UX.",
+      image: examsystemImg,
+      link: "https://examsystem.page.gd/?i=2",
+      tags: ["Education", "Full Stack", "Dashboard", "University"],
+      color: "from-emerald-500 to-green-700"
     }
   ];
 
