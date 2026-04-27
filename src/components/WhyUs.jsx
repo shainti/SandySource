@@ -140,15 +140,9 @@ const WhyUs = () => {
             Why <span className="text-blue-600 font-serif italic">SandySource</span>?
           </h2>
 
-
-
-
           <p className="text-slate-950 max-w-lg mx-auto text-xs sm:text-base font-black on-scroll-reveal animate-fade-up delay-200">
             We deliver quality, value, and long-term partnerships — not just websites.
           </p>
-
-
-
         </div>
 
         {/* CSS Grid layout - 2-col on mobile, 3-col desktop */}
@@ -191,17 +185,12 @@ const WhyUs = () => {
                   {/* Headline */}
                   <h3 className={`text-sm sm:text-[28px] font-semibold mb-1 sm:mb-2 tracking-tight relative z-10 leading-tight transition-colors duration-500 group-hover:text-blue-700 ${isFeatured ? 'text-slate-900 group-hover:text-blue-700 transition-colors' : 'text-slate-800'
                     }`}>
-
-
-
                     {card.headline}
                   </h3>
 
                   {/* Subtitle */}
                   <p className={`text-[10px] sm:text-sm font-bold mb-3 sm:mb-6 leading-relaxed sm:leading-relaxed relative z-10 line-clamp-2 sm:line-clamp-none transition-colors duration-500 group-hover:text-slate-700 ${isFeatured ? 'text-slate-600' : 'text-slate-700'
                     }`}>
-
-
                     {card.subtitle}
                   </p>
 
@@ -228,9 +217,6 @@ const WhyUs = () => {
                               ? isHighlighted ? 'text-blue-600 font-black' : 'text-slate-900'
                               : isHighlighted ? 'text-blue-600 font-black' : 'text-slate-950 group-hover:text-black transition-colors'
                           }`}>
-
-
-
                             {text}
                           </span>
                         </li>

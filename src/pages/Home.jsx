@@ -6,6 +6,8 @@ import About from '../components/About';
 import Services from '../components/Services';
 import WhyUs from '../components/WhyUs';
 import Testimonials from '../components/Testimonials';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const location = useLocation();
@@ -70,6 +72,8 @@ const Home = () => {
       <Services />
       <WhyUs />
       <Testimonials />
+      <Contact />
+      <Footer />
     </>
   );
 };

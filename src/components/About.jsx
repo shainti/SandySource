@@ -1,13 +1,5 @@
 import React from 'react';
 
-// Custom SVG Icons
-const IconCheckSquare = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>;
-const IconUsers = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>;
-const IconBriefcase = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v16"></path></svg>;
-const IconClock = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>;
- 
-
-//another trail 
 const About = () => {
   const stats = [
     { label: "Projects Completed", value: "25+" },
@@ -48,28 +40,12 @@ const About = () => {
             <p className="text-sm sm:text-lg text-slate-900 leading-relaxed font-bold">
               SandySource engineers <span className="text-slate-950 font-black">scalable web architectures</span> and <span className="text-slate-950 font-black">AI-driven solutions</span>, transforming complex technical challenges into high-performance digital assets.
             </p>
-
-
-
-
-
-            <p className="text-[10px] sm:text-xs font-black text-blue-600/40 uppercase tracking-[0.5em]">
-              Innovating with Precision
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full uppercase tracking-widest border border-blue-100">Strategic Partner</span>
-              <span className="text-[10px] font-bold text-slate-400 bg-slate-50 px-3 py-1.5 rounded-full uppercase tracking-widest border border-slate-100">Global Delivery</span>
-            </div>
           </div>
           <div className="flex items-center gap-6 bg-slate-50/80 p-6 sm:p-8 rounded-[32px] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full -mr-12 -mt-12 transition-transform duration-700 group-hover:scale-150" />
             <img src="/sandysourcelogo.png" alt="SandySource" className="h-16 sm:h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-110 relative z-10" />
             <div className="pr-4 border-l-2 border-slate-200 pl-6 space-y-2 relative z-10">
-              <div className="text-[11px] font-bold text-blue-600 uppercase tracking-[0.2em] leading-none">Official Repository</div>
               <div className="text-[10px] text-slate-600 font-bold tracking-wide">solutions@sandysource.com</div>
-              <div className="pt-2">
-                <div className="text-[9px] text-white bg-slate-900 px-2 py-0.5 rounded inline-block font-bold uppercase tracking-tighter shadow-sm">v2.0 PRO</div>
-              </div>
             </div>
           </div>
         </header>
@@ -94,30 +70,22 @@ const About = () => {
         </section>
 
 
-        {/* Workspace Tables - Team Workload look */}
+        {/* Team Section */}
         <section className="grid grid-cols-1 gap-8 mb-4 text-left">
           <div className="bg-white p-5 sm:p-8 rounded-3xl sm:rounded-[48px] shadow-[0_25px_70px_-20px_rgba(0,0,0,0.07)] border border-white/50 on-scroll-reveal animate-reveal-wipe relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-600 opacity-20" />
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
               <div className="space-y-1">
-                <h3 className="text-xl font-black tracking-widest text-slate-900 uppercase text-[12px] opacity-100">Human Capital Allocation</h3>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Capacity Management & Lifecycle Matrix</p>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="sm:hidden flex items-center gap-2 text-[10px] font-bold text-blue-500 animate-pulse bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
-                  <span>Swipe to scroll</span>
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                </div>
-                <span className="text-xs font-bold text-blue-600 cursor-pointer hover:text-blue-700 font-serif italic tracking-wider px-5 py-2.5 bg-blue-50 rounded-full transition-all hover:bg-blue-100 border border-blue-200/50">Consultancy Portfolio</span>
+                <h3 className="text-xl font-black tracking-widest text-slate-900 uppercase text-[12px] opacity-100">Our Team</h3>
               </div>
             </div>
             <div className="overflow-x-auto pb-4 scrollbar-hide">
               <table className="w-full text-left min-w-[800px]">
                 <thead>
                   <tr className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] border-b border-slate-50">
-                    <th className="pb-10">Expertise Profile</th>
-                    <th className="pb-10">Units Executed</th>
-                    <th className="pb-10">Lifecycle Status</th>
+                    <th className="pb-10">Team Member</th>
+                    <th className="pb-10">Projects</th>
+                    <th className="pb-10">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-50">

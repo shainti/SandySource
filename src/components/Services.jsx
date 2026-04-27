@@ -1,12 +1,151 @@
 import React, { useState, useEffect } from 'react';
 
+// ── SVG Icons ──────────────────────────────────────────────────────────────────
+
+const IconWebDesign = () => (
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="10" width="40" height="28" rx="4" stroke="#2563EB" strokeWidth="2" fill="none" />
+    <rect x="6" y="10" width="40" height="8" rx="4" fill="#DBEAFE" />
+    <circle cx="12" cy="14" r="2" fill="#2563EB" />
+    <circle cx="19" cy="14" r="2" fill="#93C5FD" />
+    <circle cx="26" cy="14" r="2" fill="#BFDBFE" />
+    <rect x="12" y="24" width="12" height="8" rx="2" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="1" />
+    <rect x="28" y="24" width="12" height="3" rx="1.5" fill="#BFDBFE" />
+    <rect x="28" y="29" width="8" height="3" rx="1.5" fill="#DBEAFE" />
+    <rect x="20" y="42" width="12" height="2" rx="1" fill="#93C5FD" />
+    <rect x="16" y="44" width="20" height="2" rx="1" fill="#DBEAFE" />
+  </svg>
+);
+
+const IconWebDev = () => (
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="10" width="40" height="30" rx="4" stroke="#7C3AED" strokeWidth="2" fill="none" />
+    <rect x="6" y="10" width="40" height="7" rx="4" fill="#EDE9FE" />
+    <circle cx="12" cy="13.5" r="1.8" fill="#7C3AED" />
+    <circle cx="18" cy="13.5" r="1.8" fill="#A78BFA" />
+    <circle cx="24" cy="13.5" r="1.8" fill="#C4B5FD" />
+    <path d="M14 24l-4 4 4 4" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M22 21l-4 11" stroke="#A78BFA" strokeWidth="2" strokeLinecap="round" />
+    <path d="M26 24l4 4-4 4" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <rect x="32" y="22" width="8" height="3" rx="1.5" fill="#EDE9FE" />
+    <rect x="32" y="27" width="6" height="3" rx="1.5" fill="#EDE9FE" />
+    <rect x="32" y="32" width="7" height="3" rx="1.5" fill="#EDE9FE" />
+  </svg>
+);
+
+const IconAppDev = () => (
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="17" y="4" width="18" height="32" rx="4" stroke="#0891B2" strokeWidth="2" fill="none" />
+    <rect x="17" y="4" width="18" height="32" rx="4" fill="#CFFAFE" opacity="0.3" />
+    <rect x="21" y="9" width="10" height="18" rx="2" fill="#A5F3FC" opacity="0.7" />
+    <circle cx="26" cy="31" r="2" fill="#0891B2" />
+    <rect x="22" y="7" width="8" height="1.5" rx="0.75" fill="#0891B2" />
+    <path d="M10 20h5M37 20h5" stroke="#0891B2" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" />
+    <rect x="4" y="28" width="10" height="16" rx="3" stroke="#0891B2" strokeWidth="1.5" fill="none" />
+    <rect x="38" y="28" width="10" height="16" rx="3" stroke="#0891B2" strokeWidth="1.5" fill="none" />
+    <circle cx="9" cy="39" r="1.5" fill="#0891B2" />
+    <circle cx="43" cy="39" r="1.5" fill="#0891B2" />
+  </svg>
+);
+
+const IconUXStrategy = () => (
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="26" cy="26" r="18" stroke="#2563EB" strokeWidth="2" fill="none" />
+    <circle cx="26" cy="26" r="10" stroke="#93C5FD" strokeWidth="1.5" fill="none" />
+    <circle cx="26" cy="26" r="3" fill="#2563EB" />
+    <path d="M26 8v6M26 38v6M8 26h6M38 26h6" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
+    <path d="M13.5 13.5l4.2 4.2M34.3 34.3l4.2 4.2M34.3 13.5l-4.2 4.2M17.7 34.3l-4.2 4.2" stroke="#93C5FD" strokeWidth="1.5" strokeLinecap="round" />
+    <circle cx="26" cy="8" r="2" fill="#DBEAFE" />
+    <circle cx="26" cy="44" r="2" fill="#DBEAFE" />
+    <circle cx="8" cy="26" r="2" fill="#DBEAFE" />
+    <circle cx="44" cy="26" r="2" fill="#DBEAFE" />
+  </svg>
+);
+
+const IconMarketing = () => (
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 38l8-10 6 6 8-12 8 4 8-14" stroke="#16A34A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <circle cx="14" cy="28" r="3" fill="#BBF7D0" />
+    <circle cx="20" cy="34" r="3" fill="#BBF7D0" />
+    <circle cx="28" cy="22" r="3" fill="#86EFAC" />
+    <circle cx="36" cy="26" r="3" fill="#86EFAC" />
+    <circle cx="44" cy="12" r="3.5" fill="#16A34A" />
+    <path d="M38 6h8v8" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <path d="M44 6l-7 7" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" fill="none" />
+    <rect x="6" y="40" width="40" height="2" rx="1" fill="#DCFCE7" />
+  </svg>
+);
+
+const IconCMS = () => (
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="6" width="40" height="10" rx="3" stroke="#D97706" strokeWidth="1.8" fill="#FEF3C7" opacity="0.8" />
+    <rect x="6" y="20" width="18" height="26" rx="3" stroke="#D97706" strokeWidth="1.8" fill="#FEF9C3" opacity="0.6" />
+    <rect x="28" y="20" width="18" height="12" rx="3" stroke="#D97706" strokeWidth="1.8" fill="none" />
+    <rect x="28" y="36" width="18" height="10" rx="3" stroke="#D97706" strokeWidth="1.8" fill="#D97706" opacity="0.25" />
+    <path d="M10 10h8M10 25h10M10 29h8M10 33h10M10 37h7" stroke="#D97706" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M32 25h10M32 29h7" stroke="#D97706" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+const IconEcommerce = () => (
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 8h5l5 22h22l4-14H16" stroke="#EA580C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <circle cx="22" cy="36" r="3.5" stroke="#EA580C" strokeWidth="1.8" fill="#FED7AA" />
+    <circle cx="34" cy="36" r="3.5" stroke="#EA580C" strokeWidth="1.8" fill="#FED7AA" />
+    <path d="M24 18h8M28 14v8" stroke="#EA580C" strokeWidth="2" strokeLinecap="round" />
+    <rect x="30" y="4" width="14" height="10" rx="3" fill="#FFF7ED" stroke="#EA580C" strokeWidth="1.5" />
+    <path d="M33 9h8M33 11.5h5" stroke="#EA580C" strokeWidth="1.2" strokeLinecap="round" />
+  </svg>
+);
+
+const IconAI = () => (
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="14" y="10" width="24" height="20" rx="5" stroke="#7C3AED" strokeWidth="2" fill="none" />
+    <path d="M20 18h12M20 22h8" stroke="#A78BFA" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M26 30v4" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" />
+    <path d="M18 34h20" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="20" cy="15" r="1.5" fill="#7C3AED" />
+    <circle cx="32" cy="15" r="1.5" fill="#7C3AED" />
+    <path d="M8 16c-2 2-2 6 0 8" stroke="#C4B5FD" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+    <path d="M44 16c2 2 2 6 0 8" stroke="#C4B5FD" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+    <path d="M4 14c-2 4-2 8 0 12" stroke="#EDE9FE" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+    <path d="M48 14c2 4 2 8 0 12" stroke="#EDE9FE" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+    <circle cx="26" cy="44" r="2.5" fill="#7C3AED" />
+    <path d="M22 44c0-2 2-3 4-3s4 1 4 3" stroke="#A78BFA" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+  </svg>
+);
+
+// ── Icon wrapper styles per card tag ──────────────────────────────────────────
+const iconConfig = {
+  Design: { bg: 'bg-blue-50', ring: 'ring-blue-100' },
+  Engineering: { bg: 'bg-violet-50', ring: 'ring-violet-100' },
+  Mobile: { bg: 'bg-cyan-50', ring: 'ring-cyan-100' },
+  Strategy: { bg: 'bg-blue-50', ring: 'ring-blue-100' },
+  Growth: { bg: 'bg-green-50', ring: 'ring-green-100' },
+  Management: { bg: 'bg-amber-50', ring: 'ring-amber-100' },
+  Commerce: { bg: 'bg-orange-50', ring: 'ring-orange-100' },
+  Automation: { bg: 'bg-violet-50', ring: 'ring-violet-100' },
+};
+
+const iconMap = {
+  Design: <IconWebDesign />,
+  Engineering: <IconWebDev />,
+  Mobile: <IconAppDev />,
+  Strategy: <IconUXStrategy />,
+  Growth: <IconMarketing />,
+  Management: <IconCMS />,
+  Commerce: <IconEcommerce />,
+  Automation: <IconAI />,
+};
+
+// ── Component ─────────────────────────────────────────────────────────────────
+
 const Services = () => {
   const cards = [
     {
       tag: "Design",
       headline: "Web Design",
       subtitle: "Bespoke, high-conversion digital experiences",
-      image: "/assets/web_design.png",
       features: [
         "UI/UX Strategy",
         "Figma Prototyping",
@@ -19,7 +158,6 @@ const Services = () => {
       tag: "Engineering",
       headline: "Web Development",
       subtitle: "Robust, scalable, and secure architectures",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
       features: [
         "React & Next.js",
         "Node.js Backends",
@@ -32,7 +170,6 @@ const Services = () => {
       tag: "Mobile",
       headline: "App Development",
       subtitle: "Native and cross-platform applications",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
       features: [
         "React Native",
         "iOS & Android",
@@ -45,7 +182,6 @@ const Services = () => {
       tag: "Strategy",
       headline: "UI/UX Strategy",
       subtitle: "Comprehensive user journey mapping",
-      image: "https://images.unsplash.com/photo-1541462608141-ad457491d902?q=80&w=2070&auto=format&fit=crop",
       features: [
         "User Research",
         "Wireframing",
@@ -58,7 +194,6 @@ const Services = () => {
       tag: "Growth",
       headline: "Digital Marketing",
       subtitle: "Amplify your brand's total reach",
-      image: "/assets/digital_marketing.png",
       features: [
         "SEO Optimization",
         "PPC Campaigns",
@@ -71,7 +206,6 @@ const Services = () => {
       tag: "Management",
       headline: "CMS Solutions",
       subtitle: "Custom content management systems",
-      image: "/assets/cms_solutions.png",
       features: [
         "Headless Architecture",
         "WordPress & Sanity",
@@ -84,7 +218,6 @@ const Services = () => {
       tag: "Commerce",
       headline: "E-Commerce",
       subtitle: "High-performance online store systems",
-      image: "/assets/ecommerce_solutions.png",
       features: [
         "Shopify & Custom Dev",
         "Payment Gateway Setup",
@@ -97,7 +230,6 @@ const Services = () => {
       tag: "Automation",
       headline: "AI & Chatbots",
       subtitle: "Sophisticated AI automation agents",
-      image: "/assets/ai_agents.png",
       features: [
         "Custom LLM Chatbots",
         "24/7 Support Agents",
@@ -108,7 +240,6 @@ const Services = () => {
     }
   ];
 
-  // Duplicate for infinite loop
   const allCards = [...cards, ...cards];
   const totalOriginal = cards.length;
 
@@ -116,14 +247,9 @@ const Services = () => {
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [visibleCards, setVisibleCards] = useState(3);
 
-  // Responsive: show 1 card on mobile, 3 on desktop
   useEffect(() => {
     const updateVisible = () => {
-      if (window.innerWidth < 768) {
-        setVisibleCards(1);
-      } else {
-        setVisibleCards(3);
-      }
+      setVisibleCards(window.innerWidth < 768 ? 1 : 3);
     };
     updateVisible();
     window.addEventListener('resize', updateVisible);
@@ -145,7 +271,6 @@ const Services = () => {
     }
   };
 
-  // Determine which card is in the "center" position visually
   const getCenterIndex = () => {
     return (currentIndex % totalOriginal + 1) % totalOriginal;
   };
@@ -167,15 +292,9 @@ const Services = () => {
             Tailored solutions for <span className="text-blue-600 font-serif italic">SandySource</span>
           </h2>
 
-
-
-
-
-
           <p className="text-slate-700 max-w-lg mx-auto text-sm sm:text-base font-bold on-scroll-reveal animate-fade-up delay-200">
             Professional high-end digital solutions designed to elevate your business.
           </p>
-
         </div>
 
         {/* Marquee Slider */}
@@ -193,6 +312,7 @@ const Services = () => {
               const originalIndex = index % totalOriginal;
               const centerIdx = getCenterIndex();
               const isCenter = originalIndex === centerIdx;
+              const cfg = iconConfig[card.tag] || { bg: 'bg-slate-50', ring: 'ring-slate-100' };
 
               return (
                 <div
@@ -212,18 +332,15 @@ const Services = () => {
                         : 'bg-white/80 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.05)] border border-slate-100'
                       }`}
                   >
-                    {/* Image Banner */}
-                    <div className="relative w-full aspect-[2/1] mb-6 overflow-hidden rounded-2xl bg-slate-100 shrink-0">
-                      <img
-                        src={card.image}
-                        alt={card.headline}
-                        className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
-                        onError={(e) => {
-                          e.target.src = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop';
-                        }}
-                      />
-                      {/* Subtle gradient overlay to match aesthetic */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent mix-blend-multiply opacity-50"></div>
+                    {/* Icon Banner — replaces image */}
+                    <div className={`relative w-full aspect-[2/1] mb-6 overflow-hidden rounded-2xl flex items-center justify-center shrink-0 ring-1 ${cfg.bg} ${cfg.ring}`}>
+                      <div className="transform transition-transform duration-500 hover:scale-110">
+                        {iconMap[card.tag]}
+                      </div>
+                      {/* Subtle corner decoration */}
+                      <div className="absolute bottom-3 right-4 opacity-10">
+                        {iconMap[card.tag]}
+                      </div>
                     </div>
 
                     <div className="flex-1">
@@ -240,22 +357,17 @@ const Services = () => {
                       {/* Headline */}
                       <h3 className={`text-2xl sm:text-[28px] font-black mb-2 tracking-tight ${isCenter ? 'text-slate-900' : 'text-slate-950'
                         }`}>
-
-
                         {card.headline}
                       </h3>
 
                       {/* Subtitle */}
                       <p className={`text-sm mb-6 leading-relaxed font-bold ${isCenter ? 'text-slate-700' : 'text-slate-800'
                         }`}>
-
                         {card.subtitle}
                       </p>
 
-
                       {/* Divider */}
-                      <div className={`h-px w-full mb-6 ${isCenter ? 'bg-blue-100' : 'bg-slate-100'
-                        }`} />
+                      <div className={`h-px w-full mb-6 ${isCenter ? 'bg-blue-100' : 'bg-slate-100'}`} />
 
                       {/* Feature List */}
                       <ul className="space-y-3.5 mt-auto">
@@ -284,8 +396,6 @@ const Services = () => {
                                   ? isHighlighted ? 'text-blue-600 font-black' : 'text-slate-950'
                                   : isHighlighted ? 'text-blue-600 font-black' : 'text-slate-900'
                                 }`}>
-
-
                                 {text}
                               </span>
                             </li>

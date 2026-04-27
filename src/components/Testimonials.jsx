@@ -96,8 +96,6 @@ const Testimonials = () => {
                     <p className="text-xl sm:text-[22px] font-bold text-slate-900 leading-relaxed mt-6 line-clamp-4">
                       "{item.quote}"
                     </p>
-
-
                   </div>
                   
                   <div className="pt-6 border-t border-slate-300">
@@ -153,5 +151,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
-
